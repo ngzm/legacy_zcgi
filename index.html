@@ -1,126 +1,120 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">
-<html lang="ja">
+<!DOCTYPE HTML>
+<html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
-<meta http-equiv="Content-Style-Type" content="text/css"> 
-<meta name="author" content="N.ZUMIN">
-<meta name="description" content="lŒû–³”\‚Ù‚©ŠeŽíCGIƒtƒŠ[ƒ\ƒtƒg’ñ‹Ÿ‚È‚Ç">
-<meta name="keywords" content="ZUMINAUNIXALinuxAlŒû–³”\ACGIAPerlAƒtƒŠ[ƒ\ƒtƒg">
-<link rel="stylesheet" type="text/css" href="/style/zumin.css" media="screen, projection, print">
-<title>™ ‚¸‚¤‚Ý‚ñ ™</title>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>Legacy zcgi by ngzm</title>
 </head>
 
 <body>
-   <header>
+<header>
       <div class="inner">
         <h1>Legacy zcgi</h1>
         <h2></h2>
         <a href="https://github.com/ngzm/legacy_zcgi" class="button"><small>View project on</small> GitHub</a>
       </div>
-    </header>
+</header>
 
-<address>[ <a class="magenda" href="/">Home</a> ]</address>
+<h1>Legacy zcgi</h1>
 
-<h1>Perl &amp; CGI ‚µ‚Ü‚¹‚ñ‚©</h1>
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
 
-<div class="content">
-Ž©•ª‚Ìƒz[ƒ€ƒy[ƒW‚ðì‚Á‚Ä‚Ý‚é‚ÆCGI‚ðŽg‚Á‚½ƒy[ƒW‚ª—~‚µ‚­‚È‚è‚Ü‚·‚ËBB<br>
-‚»‚ñ‚È•û‚ÉA‚¸‚¤‚Ý‚ñ‘ºƒTƒCƒg—p‚Éì‚Á‚½Šô‚Â‚©‚ÌPerl &amp; CGI ‚ðŒöŠJ‚µ‚Ä‚¢‚Ü‚·B
 <p>
-‚Ü‚½APerl ‚â CGI ‚ðŠo‚¦‚½‚¢l‚Éƒ\[ƒX‚ðŒ©‚Ä‚à‚ç‚Á‚½‚èA‰ü‘¢‚µ‚Ä‚à‚ç‚Á‚½‚è‚·‚é‚Æ‚¤‚ê‚µ‚¢‚Å‚·B<br>
-–{—ˆ‚ÍA‚»‚¤‚¢‚Á‚½ƒvƒƒOƒ‰ƒ}[‚ÌŠF‚³‚ñ‚Æ Perl ‚â CGI ‚Ì–Ê”’‚³‚ð•ª‚©‚¿‚ ‚¦‚½‚ç‚¢‚¢‚ÆŽv‚Á‚ÄŒöŠJ‚µ‚Ä‚¢‚Ü‚·‚©‚çBB
+2001å¹´ãã‚‰ã„ã«ä½œæˆã—ãŸå¤ã„ Perl CGI ã‚¹ã‚¯ãƒªãƒ—ãƒˆã§ã™ã€‚ å¤ã„ã¾ã¾ã§ã™ã€‚<br>
+ã»ã¨ã‚“ã©ã®CGIã¯ jcode.pl ã®é–¢ä¿‚ã«ã‚ˆã‚Šã€ã‚µãƒ¼ãƒã®æ–‡å­—ã‚³ãƒ¼ãƒ‰ã¯ EUC ã‹ SJIS ã—ã‹å‹•ä½œã—ãªã„ã¨æ€ã„ã¾ã™ã€‚
+</p>
+
+<!-- ============================================================================================= -->
+<h3>ï¼ºã‚«ã‚¦ãƒ³ã‚¿ãƒ¼ï¼‘å·</h3>
 <p>
-ŒÂl‚Ìƒy[ƒW‚ÅŽg—p‚³‚ê‚éŒÀ‚èA‚»‚Ì‚Ü‚ÜÝ’u‚·‚é‚È‚èA‰ü‘¢‚µ‚ÄŽg‚¤‚È‚è‚µ‚ÄŽ©—R‚É‚¨Žg‚¢’¸‚¯‚Ü‚·B<br>
-’A‚µA‰c—˜–Ú“I‚Å‚ÌŽg—p‚â‰ü‘¢iƒŒƒ“ƒ^ƒ‹ŒfŽ¦”Â‚È‚ÇAAj‚ÍAŽ„‚Ì‹–‰Â‚ª‚È‚¢ŒÀ‚èA‚»‚ÌˆêØ‚Ì—˜—p‚ð‚¨’f‚è‚µ‚Ä‚¢‚Ü‚·B
+<a href="zcounter1-install.html">ï¼ºã‚«ã‚¦ãƒ³ã‚¿ãƒ¼ï¼‘å·ã®èª¬æ˜Žã¯ã“ã¡ã‚‰</a>
+<ul>
+	<li>ï¼ºã‚«ã‚¦ãƒ³ã‚¿ãƒ¼ï¼‘å·ã¯ã€GIFã‚¤ãƒ¡ãƒ¼ã‚¸ã®ã‚¢ã‚¯ã‚»ã‚¹ã‚«ã‚¦ãƒ³ã‚¿ãƒ¼ã§ã™ã€‚
+	<li>ã‚µãƒ¼ãƒãƒ¼ä¸Šã® CGI ã§ GIFã‚¤ãƒ¡ãƒ¼ã‚¸ã‚’ä¸€æ°—ã«é€£çµã—ã¦é€ä¿¡ã™ã‚‹ãŸã‚é«˜é€Ÿã§ã™ã€‚
+	<li>åŒä¸€IPã‚¢ãƒ‰ãƒ¬ã‚¹ã®ãƒã‚§ãƒƒã‚¯ï¼ˆã‚ªãƒ—ã‚·ãƒ§ãƒ³ï¼‰æ©Ÿèƒ½ã«ã‚ˆã‚Šã€ãƒªãƒ­ãƒ¼ãƒ‰ãªã©ã«ã‚ˆã‚‹ç„¡æ„å‘³ãªã‚«ã‚¦ãƒ³ãƒˆã‚¢ãƒƒãƒ—ã‚’æŠ‘åˆ¶ã—ãŸã‚Šã§ãã¾ã™ã€‚
+</ul>
+</p>
+<!-- ============================================================================================= -->
+<h3>ï¼ºã‚«ã‚¦ãƒ³ã‚¿ãƒ¼ï¼’å·</h3>
 <p>
-
-<!-- ============================================================================================= -->
-<h3 class="blue">‚yƒJƒEƒ“ƒ^[‚P†</h3>
-
-<a href="zcounter1-install.html">ƒ_ƒEƒ“ƒ[ƒhEÝ’uƒ}ƒjƒ…ƒAƒ‹‚Í‚±‚¿‚ç‚Ö</a>
+<a href="zcounter2-install.html">ï¼ºã‚«ã‚¦ãƒ³ã‚¿ãƒ¼ï¼’å·ã®èª¬æ˜Žã¯ã“ã¡ã‚‰</a>
 <ul>
-	<li>Zumin ƒJƒEƒ“ƒ^[‚P†‹@‚Å‚·B
-	<li>‚yƒJƒEƒ“ƒ^[‚P†‚ÍAGIFƒCƒ[ƒW‚ÌƒAƒNƒZƒXƒJƒEƒ“ƒ^[‚Å‚·B
-	<li>ƒT[ƒo[ã‚Ì CGI ‚Å GIFƒCƒ[ƒW‚ðˆê‹C‚É˜AŒ‹‚µ‚Ä‘—M‚·‚é‚½‚ß‚‘¬‚Å‚·B
-	<li>“¯ˆêIPƒAƒhƒŒƒX‚Ìƒ`ƒFƒbƒNiƒIƒvƒVƒ‡ƒ“j‹@”\‚É‚æ‚èAƒŠƒ[ƒh‚È‚Ç‚É‚æ‚é–³ˆÓ–¡‚ÈƒJƒEƒ“ƒgƒAƒbƒv‚ð—}§‚µ‚Ü‚·B
-	<li>SSI ‚ÍŽg—p‚µ‚Ü‚¹‚ñBSSI ”ñ‘Î‰ž‚ÌƒTƒCƒg‚Å‚à–â‘è‚ ‚è‚Ü‚¹‚ñB
-	<li>’N‚Å‚àŠÈ’P‚ÉÝ’u‚Å‚«‚é‚±‚Æ‚ð—Dæ‚µƒVƒ“ƒvƒ‹‚³‚ð’Ç‹‚µAƒJƒEƒ“ƒ^[‚Ì‚Ý‚Ì‹@”\‚ÉŒÀ’è‚µ‚Ü‚µ‚½B
+	<li>ï¼ºã‚«ã‚¦ãƒ³ã‚¿ãƒ¼ï¼’å·ã¯ã€GIFã‚¤ãƒ¡ãƒ¼ã‚¸ã®ã‚¢ã‚¯ã‚»ã‚¹ã‚«ã‚¦ãƒ³ã‚¿ãƒ¼ã§ã™ã€‚
+	<li>ã‚µãƒ¼ãƒãƒ¼ä¸Šã® CGI ã§ GIFã‚¤ãƒ¡ãƒ¼ã‚¸ã‚’ä¸€æ°—ã«é€£çµã—ã¦é€ä¿¡ã™ã‚‹ãŸã‚é«˜é€Ÿã§ã™ã€‚
+	<li>åŒä¸€IPã‚¢ãƒ‰ãƒ¬ã‚¹ã®ãƒã‚§ãƒƒã‚¯ï¼ˆã‚ªãƒ—ã‚·ãƒ§ãƒ³ï¼‰æ©Ÿèƒ½ã«ã‚ˆã‚Šã€ãƒªãƒ­ãƒ¼ãƒ‰ãªã©ã«ã‚ˆã‚‹ç„¡æ„å‘³ãªã‚«ã‚¦ãƒ³ãƒˆã‚¢ãƒƒãƒ—ã‚’æŠ‘åˆ¶ã—ã¾ã™ã€‚
+	<li>ã‚¢ã‚¯ã‚»ã‚¹ã‚«ã‚¦ãƒ³ã‚¿ãƒ¼ã«ãƒ—ãƒ©ã‚¹ã—ã¦ç®¡ç†æ©Ÿèƒ½ãŒä»˜ã„ã¦ã„ã¾ã™ã€‚
+	<li>ç®¡ç†æ©Ÿèƒ½ã§ã¯ã€ã‚¢ã‚¯ã‚»ã‚¹æ—¥æ™‚ã‚„ã‚¢ã‚¯ã‚»ã‚¹ã—ã¦ããŸãƒ›ã‚¹ãƒˆãªã©ã®ã‚¢ã‚¯ã‚»ã‚¹ãƒ­ã‚°ãŒåŽé›†ã§ãã¾ã™ã€‚
+	<li>ç®¡ç†æ©Ÿèƒ½ã§ã¯ã€ã‚¢ã‚¯ã‚»ã‚¹ãƒ­ã‚°ã®å‚ç…§ã€ãƒ€ã‚¦ãƒ³ãƒ­ãƒ¼ãƒ‰ã€å‰Šé™¤ãŒã§ãã¾ã™ã€‚
+	<li>ç®¡ç†ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã¯ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰èªè¨¼ãŒå¿…è¦ã§ã™ã®ã§ç®¡ç†è€…ä»¥å¤–ã¯å…¥ã‚Œã¾ã›ã‚“ã€‚
+	<li>ç®¡ç†ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã¯ä¸€åº¦èªè¨¼ã•ã‚Œã‚‹ã¨ã‚¯ãƒƒã‚­ãƒ¼ã«ä¿å­˜ã•ã‚Œã‚‹ãŸã‚ã€æ¬¡å›žã‹ã‚‰èªè¨¼ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã‚’å…¥åŠ›ã™ã‚‹æ‰‹é–“ãŒçœã‘ã¾ã™ã€‚
 </ul>
-<br>
+</p>
 <!-- ============================================================================================= -->
-<h3 class="blue">‚yƒJƒEƒ“ƒ^[‚Q†</h3>
-
-<a href="zcounter2-install.html">ƒ_ƒEƒ“ƒ[ƒhEÝ’uƒ}ƒjƒ…ƒAƒ‹‚Í‚±‚¿‚ç‚Ö</a>
+<h3>ï¼ºã‚²ã‚¹ãƒˆãƒ–ãƒƒã‚¯ï¼‘å·</h3>
+<p>
+<a href="zguest1-install.html">ï¼ºã‚²ã‚¹ãƒˆãƒ–ãƒƒã‚¯ï¼‘å·ã®èª¬æ˜Žã¯ã“ã¡ã‚‰ã¸</a>
 <ul>
-	<li>Zumin ƒJƒEƒ“ƒ^[‚Q†‹@‚Å‚·B
-	<li>‚yƒJƒEƒ“ƒ^[‚Q†‚ÍAGIFƒCƒ[ƒW‚ÌƒAƒNƒZƒXƒJƒEƒ“ƒ^[‚Å‚·B
-	<li>ƒT[ƒo[ã‚Ì CGI ‚Å GIFƒCƒ[ƒW‚ðˆê‹C‚É˜AŒ‹‚µ‚Ä‘—M‚·‚é‚½‚ß‚‘¬‚Å‚·B
-	<li>“¯ˆêIPƒAƒhƒŒƒX‚Ìƒ`ƒFƒbƒNiƒIƒvƒVƒ‡ƒ“j‹@”\‚É‚æ‚èAƒŠƒ[ƒh‚È‚Ç‚É‚æ‚é–³ˆÓ–¡‚ÈƒJƒEƒ“ƒgƒAƒbƒv‚ð—}§‚µ‚Ü‚·B
-	<li>SSI ‚ÍŽg—p‚µ‚Ü‚¹‚ñBSSI ”ñ‘Î‰ž‚ÌƒTƒCƒg‚Å‚à–â‘è‚ ‚è‚Ü‚¹‚ñB
-	<li>ƒAƒNƒZƒXƒJƒEƒ“ƒ^[‚Éƒvƒ‰ƒX‚µ‚ÄŠÇ—‹@”\‚ª•t‚¢‚Ä‚¢‚Ü‚·B
-	<li>ŠÇ—‹@”\‚Å‚ÍAƒAƒNƒZƒX“úŽž‚âƒAƒNƒZƒX‚µ‚Ä‚«‚½ƒzƒXƒg‚È‚Ç‚ÌƒAƒNƒZƒXƒƒO‚ªŽûW‚Å‚«‚Ü‚·B
-	<li>ŠÇ—‹@”\‚Å‚ÍAƒAƒNƒZƒXƒƒO‚ÌŽQÆAƒ_ƒEƒ“ƒ[ƒhAíœ‚ª‚Å‚«‚Ü‚·B
-	<li>ŠÇ—ƒƒjƒ…[‚ÍƒpƒXƒ[ƒh”FØ‚ª•K—v‚Å‚·‚Ì‚ÅŠÇ—ŽÒˆÈŠO‚Í“ü‚ê‚Ü‚¹‚ñB
-	<li>ŠÇ—ƒƒjƒ…[‚Íˆê“x”FØ‚³‚ê‚é‚ÆƒNƒbƒL[‚É•Û‘¶‚³‚ê‚é‚½‚ßAŽŸ‰ñ‚©‚ç”FØƒpƒXƒ[ƒh‚ð“ü—Í‚·‚éŽèŠÔ‚ªÈ‚¯‚Ü‚·B
+	<li>ï¼ºã‚²ã‚¹ãƒˆãƒ–ãƒƒã‚¯ï¼‘å·æ©Ÿã§ã™ã€‚
+	<li>ã‚¢ã‚¤ã‚³ãƒ³ä»˜ãã®æ¥½ã—ã’ãªã‚²ã‚¹ãƒˆãƒ–ãƒƒã‚¯ã§ã™ã€‚
+	<li>æ–°è¦æŠ•ç¨¿ã«ã¯ã ã‚Œã§ã‚‚ãƒ¬ã‚¹ãŒä»˜ã‘ã‚‰ã‚Œã¾ã™ã€‚
+	<li>ã‚¯ãƒƒã‚­ãƒ¼å¯¾å¿œã—ã¦ã‚ã‚Šã¾ã™ã®ã§ã€ï¼’å›žç›®ä»¥é™ã®æ›¸è¾¼ã¿ãŒæ¥½ã§ã™ã€‚
+	<li>ç®¡ç†æ©Ÿèƒ½ãŒä»˜ã„ã¦ã„ã¾ã™ã€‚
+	<li>ç®¡ç†æ©Ÿèƒ½ã§ã€æŠ•ç¨¿ãƒ­ã‚°ã®ç·¨é›†ã€å‰Šé™¤ã€ãƒ€ã‚¦ãƒ³ãƒ­ãƒ¼ãƒ‰ãŒãã¾ã™ã€‚
+	<li>ç®¡ç†ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã¯èªè¨¼ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ãŒå¿…è¦ã§ã™ã€‚
+	<li>ç®¡ç†ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã¯ä¸€åº¦èªè¨¼ã•ã‚Œã‚‹ã¨ã‚¯ãƒƒã‚­ãƒ¼ã«ä¿å­˜ã•ã‚Œã‚‹ãŸã‚ã€æ¬¡å›žã‹ã‚‰èªè¨¼ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã‚’å…¥åŠ›ã™ã‚‹æ‰‹é–“ãŒçœã‘ã¾ã™ã€‚
 </ul>
-<br>
+</p>
 <!-- ============================================================================================= -->
-<h3>‚yƒQƒXƒgƒuƒbƒN‚P†</h3>
-
-<a href="zguest1-install.html">ƒ_ƒEƒ“ƒ[ƒhEÝ’uƒ}ƒjƒ…ƒAƒ‹‚Í‚±‚¿‚ç‚Ö</a>
+<h3>ï¼ºå£ç´™ãƒ‡ã‚£ã‚¹ãƒ—ãƒ¬ãƒ¼ï¼‘å·</h3>
+<p>
+<a href="zbgshow1-install.html">ï¼ºå£ç´™ãƒ‡ã‚£ã‚¹ãƒ—ãƒ¬ãƒ¼ï¼‘å·ã®èª¬æ˜Žã¯ã“ã¡ã‚‰ã¸</a>
 <ul>
-	<li>Zumin ƒQƒXƒgƒuƒbƒN‚P†‹@‚Å‚·B
-	<li>ƒAƒCƒRƒ“•t‚«‚ÌŠy‚µ‚°‚ÈƒQƒXƒgƒuƒbƒN‚Å‚·B
-	<li>V‹K“Še‚É‚Í‚¾‚ê‚Å‚àƒŒƒX‚ª•t‚¯‚ç‚ê‚Ü‚·B
-	<li>ƒNƒbƒL[‘Î‰ž‚µ‚Ä‚ ‚è‚Ü‚·‚Ì‚ÅA‚Q‰ñ–ÚˆÈ~‚Ì‘ž‚Ý‚ªŠy‚Å‚·B
-	<li>ŠÇ—‹@”\‚ª•t‚¢‚Ä‚¢‚Ü‚·B
-	<li>ŠÇ—‹@”\‚ÅA“ŠeƒƒO‚Ì•ÒWAíœAƒ_ƒEƒ“ƒ[ƒh‚ª‚«‚Ü‚·B
-	<li>ŠÇ—ƒƒjƒ…[‚Í”FØƒpƒXƒ[ƒh‚ª•K—v‚Å‚·B
-	<li>ŠÇ—ƒƒjƒ…[‚Íˆê“x”FØ‚³‚ê‚é‚ÆƒNƒbƒL[‚É•Û‘¶‚³‚ê‚é‚½‚ßAŽŸ‰ñ‚©‚ç”FØƒpƒXƒ[ƒh‚ð“ü—Í‚·‚éŽèŠÔ‚ªÈ‚¯‚Ü‚·B
+	<li>ï¼ºå£ç´™ãƒ‡ã‚£ã‚¹ãƒ—ãƒ¬ãƒ¼ï¼‘å·ã¯ã€å£ç´™ã”ã¨ã« HTML ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ä½œã‚‹ã“ã¨ãªãã€å£ç´™ã®èƒŒæ™¯ã‚µãƒ³ãƒ—ãƒ«è¡¨ç¤ºã‚’è¡Œã† CGI ã§ã™ã€‚
+	<li>å£ç´™ã®èƒŒæ™¯ã‚µãƒ³ãƒ—ãƒ«ã¯ã€åˆ¥ã®ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã€æˆ–ã„ã¯ã€åˆ¥ã®ãƒ•ãƒ¬ãƒ¼ãƒ ä¸Šã«è¡¨ç¤ºã—ã¾ã™ã€‚
 </ul>
-<br>
+</p>
 <!-- ============================================================================================= -->
-<h3 class="orange">‚y•ÇŽ†ƒfƒBƒXƒvƒŒ[‚P†</h3>
-
-<a href="zbgshow1-install.html">ƒ_ƒEƒ“ƒ[ƒhEÝ’uƒ}ƒjƒ…ƒAƒ‹‚Í‚±‚¿‚ç‚Ö</a>
+<h3>ï¼ºå£ç´™ãƒ‡ã‚£ã‚¹ãƒ—ãƒ¬ãƒ¼ï¼’å·</h3>
+<p>
+<a href="zbgshow2-install.html">ï¼ºå£ç´™ãƒ‡ã‚£ã‚¹ãƒ—ãƒ¬ãƒ¼ï¼’å·ã®èª¬æ˜Žã¯ã“ã¡ã‚‰ã¸</a>
 <ul>
-	<li>‘fÞ‰®‚Ì‚Ý‚È‚³‚Ü•ûA•ÇŽ†‚Ì”wŒiƒTƒ“ƒvƒ‹•\Ž¦‚Í‚Ç‚¤‚³‚ê‚Ä‚¢‚Ü‚·‚©H
-	<li>•ÇŽ†‚²‚Æ‚É HTML ƒtƒ@ƒCƒ‹‚ð—pˆÓ‚µ‚½‚è‚µ‚Ä‚¢‚Ü‚¹‚ñ‚©H
-	<li>‚y•ÇŽ†ƒfƒBƒXƒvƒŒ[‚P†‚ÍA•ÇŽ†‚²‚Æ‚É HTML ƒtƒ@ƒCƒ‹‚ðì‚é‚±‚Æ‚È‚­A•ÇŽ†‚Ì”wŒiƒTƒ“ƒvƒ‹•\Ž¦‚ðs‚¤ CGI ‚Å‚·B
-	<li>•ÇŽ†‚Ì”wŒiƒTƒ“ƒvƒ‹‚ÍA•Ê‚ÌƒEƒCƒ“ƒhƒEAˆ½‚¢‚ÍA•Ê‚ÌƒtƒŒ[ƒ€ã‚É•\Ž¦‚µ‚Ü‚·B
-	<li>‚Æ‚Á‚Ä‚àƒVƒ“ƒvƒ‹‚È CGI ƒXƒNƒŠƒvƒg‚Å‚·‚©‚çAHTML ‚ª‚ ‚é’ö“x—‰ð‚Å‚«‚Ä‚¢‚ê‚ÎAŠÈ’P‚ÉÝ’u‚Å‚«‚é‚ÆŽv‚¢‚Ü‚·B
-</ul>
-<br>
-<!-- ============================================================================================= -->
-<h3 class="orange">‚y•ÇŽ†ƒfƒBƒXƒvƒŒ[‚Q†</h3>
-
-<a href="zbgshow2-install.html">ƒ_ƒEƒ“ƒ[ƒhEÝ’uƒ}ƒjƒ…ƒAƒ‹‚Í‚±‚¿‚ç‚Ö</a>
-<ul>
-	<li>‚y•ÇŽ†ƒfƒBƒXƒvƒŒ[‚Q†‚ÍA‚y•ÇŽ†ƒfƒBƒXƒvƒŒ[‚P†‚Æ“¯—lA•ÇŽ†‚²‚Æ‚É HTML ƒtƒ@ƒCƒ‹‚ðì‚é‚±‚Æ‚È‚­A•ÇŽ†‚Ì”wŒiƒTƒ“ƒvƒ‹•\Ž¦‚ðs‚¤ CGI ‚Å‚·B
-	<li>‚y•ÇŽ†ƒfƒBƒXƒvƒŒ[‚Q†‚ÍA‚y•ÇŽ†ƒfƒBƒXƒvƒŒ[‚P†‚ð‰ü—Ç‚µA•ÊƒEƒCƒ“ƒhƒEAˆ½‚¢‚ÍA•ÊƒtƒŒ[ƒ€‚ðŠJ‚­‚±‚Æ‚È‚­•ÇŽ†‚Ì”wŒiƒTƒ“ƒvƒ‹•\Ž¦‚ª‚Å‚«‚Ü‚·B
-	<li>‚±‚¿‚ç‚àA‚Æ‚Á‚Ä‚àƒVƒ“ƒvƒ‹‚È CGI ƒXƒNƒŠƒvƒg‚Å‚·BHTML ‚ª‚ ‚é’ö“x—‰ð‚Å‚«‚Ä‚¢‚ê‚ÎAŠÈ’P‚ÉÝ’u‚Å‚«‚é‚ÆŽv‚¢‚Ü‚·B
-</ul>
+	<li>ï¼ºå£ç´™ãƒ‡ã‚£ã‚¹ãƒ—ãƒ¬ãƒ¼ï¼’å·ã¯ã€å£ç´™ã”ã¨ã« HTML ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ä½œã‚‹ã“ã¨ãªãã€å£ç´™ã®èƒŒæ™¯ã‚µãƒ³ãƒ—ãƒ«è¡¨ç¤ºã‚’è¡Œã† CGI ã§ã™ã€‚
+	<li>ï¼ºå£ç´™ãƒ‡ã‚£ã‚¹ãƒ—ãƒ¬ãƒ¼ï¼’å·ã¯ã€åˆ¥ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã€æˆ–ã„ã¯ã€åˆ¥ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’é–‹ãã“ã¨ãªãå£ç´™ã®èƒŒæ™¯ã‚µãƒ³ãƒ—ãƒ«è¡¨ç¤ºãŒã§ãã¾ã™ã€‚
+</p>
 
 <!-- ============================================================================================= -->
-</div>
-<br>
-<address>[ <a class="magenda" href="/">Home</a> ]</address>
+<aside id="sidebar">
+	<a href="https://github.com/ngzm/legacy_zcgi/zipball/master" class="button">
+		<small>Download</small>
+		.zip file
+	</a>
+	<a href="https://github.com/ngzm/legacy_zcgi/tarball/master" class="button">
+		<small>Download</small>
+		.tar.gz file
+	</a>
 
+	<p class="repo-owner">
+		<a href="https://github.com/ngzm/legacy_zcgi"></a> is maintained by <a href="https://github.com/ngzm">ngzm</a>.
+	</p>
 
-        <aside id="sidebar">
-          <a href="https://github.com/ngzm/legacy_zcgi/zipball/master" class="button">
-            <small>Download</small>
-            .zip file
-          </a>
-          <a href="https://github.com/ngzm/legacy_zcgi/tarball/master" class="button">
-            <small>Download</small>
-            .tar.gz file
-          </a>
-
-          <p class="repo-owner"><a href="https://github.com/ngzm/legacy_zcgi"></a> is maintained by <a href="https://github.com/ngzm">ngzm</a>.</p>
-
-          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
-        </aside>
+	<p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a>
+	 using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
+	</p>
+</aside>
+      </div>
+    </div>
 
 </body>
 </html>
