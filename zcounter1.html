@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <html>
-<head>
+  <head>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -10,109 +10,108 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
 
     <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
 
     <title>Legacy zcgi zcounter1 by ngzm</title>
-</head>
-<body>
-  <header>
-    <div class="inner">
-      <h1>Legacy zcgi zcounter1</h1>
-    </div>
-  </header>
-  <div id="content-wrapper">
-    <div class="inner clearfix">
-      <section id="main-content">
+  </head>
+  <body>
+    <header>
+      <div class="inner">
+	<h1>Legacy zcgi zcounter1</h1>
+      </div>
+    </header>
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+	<section id="main-content">
+	  <!-- ============================================================================================= -->
+	  <h3>zcounter1 とは</h3>
+	  <p>
+	    Ｚカウンター１号のことで、GIFイメージのアクセスカウンターです。同一IPアドレスのチェック（オプション）機能により、リロードxなどによる無意味なカウントアップを抑制します。
+	  </p>
+	  <!-- ============================================================================================= -->
+	  <h3>動作条件</h3>
+	  <p>
+	    <ul>
+	      <li>ホームページがあるサーバで（Perl5）以上を使用したCGIが使えること。
+	      <li>サーバのOSがLinux、UNIXで、文字コードは EUC_JP もしくは SJIS であること。たぶんUTF8ではだめです。古いんで・・
+	      <li>サーバのOSがLinux、UNIXで、Web Server が Apache で動作確認しています。
+	    </ul>
+	  </p>
+	  <!-- ============================================================================================= -->
+	  <h3>ディレクトリ・ファイル構成</h3>
+	  <p>
+	    <pre>
+    ./zcounter1.cgi          ---  Ｚカウンター１号CGI本体プログラム
+    ./userdef.pm             ---  ユーザー環境設定ファイル
+    ./gifcat.pl              ---  GIFイメージ操作プログラム（とほほさん著作）
+    ./counter_img/           ---  カウンターGIF格納ディレクトリ
+    ./counter_img/zero.gif   ---  カウンターGIFファイル [ 0 ]
+    ./counter_img/one.gif    ---  カウンターGIFファイル [ 1 ]
+    ./counter_img/two.gif    ---  カウンターGIFファイル [ 2 ]
+    ./counter_img/three.gif  ---  カウンターGIFファイル [ 3 ]
+    ./counter_img/four.gif   ---  カウンターGIFファイル [ 4 ]
+    ./counter_img/five.gif   ---  カウンターGIFファイル [ 5 ]
+    ./counter_img/six.gif    ---  カウンターGIFファイル [ 6 ]
+    ./counter_img/seven.gif  ---  カウンターGIFファイル [ 7 ]
+    ./counter_img/eight.gif  ---  カウンターGIFファイル [ 8 ]
+    ./counter_img/nine.gif   ---  カウンターGIFファイル [ 9 ]
+    ./data/                  ---  カウンターデータ格納ディレクトリ
+    ./data/error.gif         ---  エラー表示用GIF
+	    </pre>
+	    <br>
+	    ソースに含まれるカウンターGIFファイル [counter_img/XXX.gif]は、娘（当時5才）が描いたサンプルですので、お好みのカウンタ GIF と入れ替えてくだせい。
+	  </p>
+	  <!-- ============================================================================================= -->
+	  <h3>実行権、書込権の設定</h3>
+	  <p>
+	    <pre>
+    ./zcounter1.cgi          ---  rwxr-xr-x [ 755 ]
+    ./userdef.pm             ---  rw-r--r-- [ 644 ]
+    ./gifcat.pl              ---  rw-r--r-- [ 644 ]
+    ./counter_img/           ---  rwxr-xr-x [ 755 ]
+    ./counter_img/zero.gif   ---  rw-r--r-- [ 644 ]
+    ./counter_img/one.gif    ---  rw-r--r-- [ 644 ]
+    ./counter_img/two.gif    ---  rw-r--r-- [ 644 ]
+    ./counter_img/three.gif  ---  rw-r--r-- [ 644 ]
+    ./counter_img/four.gif   ---  rw-r--r-- [ 644 ]
+    ./counter_img/five.gif   ---  rw-r--r-- [ 644 ]
+    ./counter_img/six.gif    ---  rw-r--r-- [ 644 ]
+    ./counter_img/seven.gif  ---  rw-r--r-- [ 644 ]
+    ./counter_img/eight.gif  ---  rw-r--r-- [ 644 ]
+    ./counter_img/nine.gif   ---  rw-r--r-- [ 644 ]
+    ./data/                  ---  rwxrwxrwx [ 777 ]
+    ./data/error.gif         ---  rw-r--r-- [ 644 ]
+	    </pre>
+	  </p>
+	  <!-- ============================================================================================= -->
+	  <h3>ユーザー環境設定ファイルの編集 [ userdef.pm ]</h3>
+	  <p>
+	    <ul>
+	      <li>ユーザー環境設定ファイル [ userdef.pm ] の以下の2項目をお好みで変更できます。
+		<ol>
+		  <li>カウンターの表示桁数 [ $CounterSize ]
+		  <li>同一IPアドレスのチェック [ $CheckHomonymIp ]
+		</ol>
+	    </ul>
+	    <pre><code>
+	==== userdef.pm ====
+	..
+	..
+	###################################################################
+	#
+	#   カスタマイズ可能変数（お好みで書き換え可）
+	#
+	###################################################################
 
-<!-- ============================================================================================= -->
-<h3>zcounter1 とは</h3>
-<p>
-Ｚカウンター１号のことで、GIFイメージのアクセスカウンターです。同一IPアドレスのチェック（オプション）機能により、リロードなどによる無意味なカウントアップを抑制します。
-</p>
-<!-- ============================================================================================= -->
-<h3>動作条件</h3>
-<p>
-  <ul>
-    <li>ホームページがあるサーバで（Perl5）以上を使用したCGIが使えること。
-    <li>サーバのOSがLinux、UNIXで、文字コードは EUC_JP もしくは SJIS であること。たぶんUTF8ではだめです。古いんで・・
-    <li>サーバのOSがLinux、UNIXで、Web Server が Apache で動作確認しています。
-  </ul>
-</p>
-<!-- ============================================================================================= -->
-<h3>ディレクトリ・ファイル構成</h3>
-<p>
-  <pre>
-        ./zcounter1.cgi          ---  Ｚカウンター１号CGI本体プログラム
-        ./userdef.pm             ---  ユーザー環境設定ファイル
-        ./gifcat.pl              ---  GIFイメージ操作プログラム（とほほさん著作）
-        ./counter_img/           ---  カウンターGIF格納ディレクトリ
-        ./counter_img/zero.gif   ---  カウンターGIFファイル [ 0 ]
-        ./counter_img/one.gif    ---  カウンターGIFファイル [ 1 ]
-        ./counter_img/two.gif    ---  カウンターGIFファイル [ 2 ]
-        ./counter_img/three.gif  ---  カウンターGIFファイル [ 3 ]
-        ./counter_img/four.gif   ---  カウンターGIFファイル [ 4 ]
-        ./counter_img/five.gif   ---  カウンターGIFファイル [ 5 ]
-        ./counter_img/six.gif    ---  カウンターGIFファイル [ 6 ]
-        ./counter_img/seven.gif  ---  カウンターGIFファイル [ 7 ]
-        ./counter_img/eight.gif  ---  カウンターGIFファイル [ 8 ]
-        ./counter_img/nine.gif   ---  カウンターGIFファイル [ 9 ]
-        ./data/                  ---  カウンターデータ格納ディレクトリ
-        ./data/error.gif         ---  エラー表示用GIF
-  </pre>
-  <br>
-  ソースに含まれるカウンターGIFファイル [counter_img/XXX.gif]は、娘（当時5才）が描いたサンプルですので、お好みのカウンタ GIF と入れ替えてくだせい。
-</p>
-<!-- ============================================================================================= -->
-<h3>実行権、書込権の設定</h3>
-<p>
-  <pre>
-        ./zcounter1.cgi          ---  rwxr-xr-x [ 755 ]
-        ./userdef.pm             ---  rw-r--r-- [ 644 ]
-        ./gifcat.pl              ---  rw-r--r-- [ 644 ]
-        ./counter_img/           ---  rwxr-xr-x [ 755 ]
-        ./counter_img/zero.gif   ---  rw-r--r-- [ 644 ]
-        ./counter_img/one.gif    ---  rw-r--r-- [ 644 ]
-        ./counter_img/two.gif    ---  rw-r--r-- [ 644 ]
-        ./counter_img/three.gif  ---  rw-r--r-- [ 644 ]
-        ./counter_img/four.gif   ---  rw-r--r-- [ 644 ]
-        ./counter_img/five.gif   ---  rw-r--r-- [ 644 ]
-        ./counter_img/six.gif    ---  rw-r--r-- [ 644 ]
-        ./counter_img/seven.gif  ---  rw-r--r-- [ 644 ]
-        ./counter_img/eight.gif  ---  rw-r--r-- [ 644 ]
-        ./counter_img/nine.gif   ---  rw-r--r-- [ 644 ]
-        ./data/                  ---  rwxrwxrwx [ 777 ]
-        ./data/error.gif         ---  rw-r--r-- [ 644 ]
-  </pre>
-</p>
-<!-- ============================================================================================= -->
-<h3>ユーザー環境設定ファイルの編集 [ userdef.pm ]</h3>
-<p>
-  <ul>
-    <li>ユーザー環境設定ファイル [ userdef.pm ] の以下の2項目をお好みで変更できます。
-      <ol>
-	<li>カウンターの表示桁数 [ $CounterSize ]
-	<li>同一IPアドレスのチェック [ $CheckHomonymIp ]
-      </ol>
-  </ul>
-  <pre><code>
-    ==== userdef.pm ====
-        ..
-        ..
-        ###################################################################
-        #
-        #   カスタマイズ可能変数（お好みで書き換え可）
-        #
-        ###################################################################
+	# -----------------------------------
+	# カウンターの表示桁数です。
+	# -----------------------------------
+	$CounterSize = 6;       <==== 左記の 6 を 好きな桁に変更できます。
+				<==== イコール[ = ] や セミコロン [ ; ] まで
+				      消してしまわないように気をつけて。
 
-        # -----------------------------------
-        # カウンターの表示桁数です。
-        # -----------------------------------
-        $CounterSize = 6;       <==== 左記の 6 を 好きな桁に変更できます。
-                                <==== イコール[ = ] や セミコロン [ ; ] まで
-                                      消してしまわないように気をつけて。
-
-        # -----------------------------------
+	# -----------------------------------
         # 同一IPアドレスのチェックです。
         #   1 : チェックします。
         #   0 : チェックしません。
@@ -121,20 +120,19 @@
 				      同一IPアドレスのチェックを１にすると
 				      同じ人が [ホーム] などをクリックする
 				      たびにカウントアップしないようにできます。
-                                <==== イコール[ = ] や セミコロン [ ; ] まで
-                                      消してしまわないように気をつけて。
-        ..
-        ..
-  </code></pre>
-</p>
-<!-- ============================================================================================= -->
-<p>-- 以 上 --</p>
-
-      </section>
-      <aside id="sidebar">
-	<h3><a href="index.html">[ 戻る ]</a></h3>
+				<==== イコール[ = ] や セミコロン [ ; ] まで
+				      消してしまわないように気をつけて。
+	..
+	..
+	    </code></pre>
+	  </p>
+	  <!-- ============================================================================================= -->
+	  <p>-- 以 上 --</p>
+	</section>
+	<aside id="sidebar">
+	  <h3><a href="index.html">[ 戻る ]</a></h3>
+	</aside>
+      </div>
     </div>
-  </div>
-
-</body>
+  </body>
 </html>
