@@ -11,10 +11,9 @@
 	<h1>Legacy zcgi zguest1</h1>
       </div>
     </header>
-    <div class="content">
+    <section>
       <!-- ========================================================================= -->
       <h3>zguest1</h3>
-      <p>
 	<ul>
 	  <li>zguest1 とは Zゲストブック１号機です。
 	  <li>アイコン付きの楽しげなゲストブックです。
@@ -22,19 +21,15 @@
 	  <li>管理機能が付いています。
 	  <li>管理機能で、編集、削除、ダウンロードがきます。
 	</ul>
-      </p>
       <!-- ========================================================================= -->
       <h3>動作条件</h3>
-      <p>
 	<ul>
 	  <li>ホームページがあるサーバで（Perl5）以上を使用したCGIが使えること。
 	  <li>サーバのOSがLinux、UNIXで、文字コードは EUC_JP もしくは SJIS であること。たぶんUTF8ではだめです。古いんで・・
 	  <li>サーバのOSがLinux、UNIXで、Web Server が Apache で動作確認しています。
 	</ul>
-      </p>
       <!-- ========================================================================= -->
       <h3>ディレクトリ・ファイル構成</h3>
-      <p>
 	<pre>
           ./zguest1.cgi            ---  Ｚゲストブック１号CGI本体プログラム [GET  METHOD]
           ./zguest1p.cgi           ---  Ｚゲストブック１号CGI本体プログラム [POST METHOD]
@@ -54,7 +49,6 @@
 
           ./data/                  ---  【ディレクトリ】 投稿メッセージログなどのデータ格納
 	</pre>
-      </p>
       <!-- ========================================================================= -->
       <h3>実行権、書込権の付与</h3>
       <ul>
@@ -77,7 +71,6 @@
         ./img/配下画像ファイル   ---  rw-r--r-- [ 644 ]
         ./data/                  ---  rwxrwxrwx [ 777 ]
       </pre>
-      <br>
       <!-- ========================================================================= -->
       <h3>ユーザー環境設定ファイルの編集 [ userdef.pm ] -- ゲストブック本体向けの設定</h3>
       <ul>
@@ -85,50 +78,49 @@
 	<li>設定できる項目は、大きく分けて、<span>ゲストブック本体向け</span>と、<span>管理メニュー向け</span>の２種類あります。
 	<li>ここでは、<span>ゲストブック本体向け</span>の設定項目について説明します。
       </ul>
-      <blockquote>
-	<table border="1" cellpadding="4" cellspacing="0">
+	<table>
 	  <tr>
-	    <th nowrap>$HomeURL</th>
+	    <th>$HomeURL</th>
 	    <td>あなたのホームページのHOMEへのURL</td>
 	  </tr><tr>
-	    <th nowrap>$MaxLogCount</th>
+	    <th>$MaxLogCount</th>
 	    <td>投稿メッセージログ蓄積数の最大値（最高５１２までです）<br>
 	      256 以内を推奨しています。<br>
 	      投稿ログに蓄積されたものがこの数を超える場合、古いものから削除されます。<br>
 	      投稿ログのシリアル番号はこの数に関係なく継続してカウントされます。<br>
 	    </td>
 	  </tr><tr>
-	    <th nowrap>$UserBgColor</th>
+	    <th>$UserBgColor</th>
 	    <td>ゲストブックページ全体の背景色<br>
-	      &ltbody&gt タグの bgcolor属性の値です。<br>
+	      &lt;body&gt; タグの bgcolor属性の値です。<br>
 	      HTML形式（#FFFFFF など）で指定します。<br>
 	    </td>
 	  </tr><tr>
-	    <th nowrap>$UserBgImg</th>
+	    <th>$UserBgImg</th>
 	    <td>ゲストブックページ全体の背景画像(gif)ファイル名<br>
-	      &ltbody&gt タグの background属性の値です。<br>
-	      &ltbody&gt タグの background属性なので上の$UserBgColor より優先されます。<br>
+	      &lt;body&gt; タグの background属性の値です。<br>
+	      &lt;body&gt; タグの background属性なので上の$UserBgColor より優先されます。<br>
 	      画像ファイル(gif)は、皆さんでご用意ください。<br>
 	      画像ファイルは img ディレクトリに配置してください。<br>
 	    </td>
 	  </tr><tr>
-	    <th nowrap>$UserFgColor</th>
+	    <th>$UserFgColor</th>
 	    <td>ゲストブックページ全体の文字色 <br>
-	      &ltbody&gt タグの background属性の値です。<br>
+	      &lt;tbody&gt; タグの background属性の値です。<br>
 	      HTML形式（#4488FF など）で指定します。<br>
 	    </td>
 	  </tr><tr>
-	    <th nowrap>$UserTitle</th>
+	    <th>$UserTitle</th>
 	    <td>タイトル文字<br>
 	      ブラウザのフレームタイトル、及び、ページの表題になります。<br>
 	    </td>
 	  </tr><tr>
-	    <th nowrap>$UserTitleColor</th>
+	    <th>$UserTitleColor</th>
 	    <td>タイトル文字表示色 <br>
 	      HTML形式（#4488FF など）で指定します。<br>
 	    </td>
 	  </tr><tr>
-	    <th nowrap>$UserTitleImg</th>
+	    <th>$UserTitleImg</th>
 	    <td>タイトル画像(gif)ファイル名<br>
 	      ページの表題画像になります。<br>
 	      ページの表題としては、上のタイトル文字 $UserTitle よりも優先されます。<br>
@@ -137,7 +129,7 @@
 	      画像ファイルは img ディレクトリに配置してください。<br>
 	    </td>
 	  </tr><tr>
-	    <th nowrap>$UserLogColor_1〜10</th>
+	    <th>$UserLogColor_1〜10</th>
 	    <td>投稿メッセージ文字色１〜１０<br>
 	      投稿フォームで選択可能とする文字色をHTML形式で指定します。<br>
 	      １〜１０まで指定可能ですが、全てに指定する必要はありません。<br>
@@ -145,7 +137,7 @@
 	      あとはPerlのコメント行とする（行頭に#を入れる）とOKです。<br>
 	    </td>
 	  </tr><tr>
-	    <th nowrap>$UserLogIcon_1〜30</th>
+	    <th>$UserLogIcon_1〜30</th>
 	    <td>投稿メッセージアイコンファイル名１〜３０<br>
 	      投稿フォームで選択可能なアイコン(gif)ファイル名を指定します。
 	      １〜３０まで指定可能ですが、全てに指定する必要はありません。<br>
@@ -156,39 +148,38 @@
 	      画像ファイルは img ディレクトリに配置してください。<br>
 	    </td>
 	  </tr><tr>
-	    <th nowrap>$UserLogMailIcon</th>
+	    <th>$UserLogMailIcon</th>
 	    <td>投稿メッセージのE-Mail部分に表示するアイコンファイル名<br>
 	      画像ファイル(gif)は、皆さんでご用意ください。<br>
 	      ちなみに表示するサイズは20X15ピクセルです。<br>
 	      画像ファイルは img ディレクトリに配置してください。<br>
 	    </td>
 	  </tr><tr>
-	    <th nowrap>$UserLogHomeIcon</th>
+	    <th>$UserLogHomeIcon</th>
 	    <td>投稿メッセージのHP部分に表示するアイコンファイル名 <br>
 	      画像ファイル(gif)は、皆さんでご用意ください。<br>
 	      ちなみに表示するサイズは20X15ピクセルです。<br>
 	      画像ファイルは img ディレクトリに配置してください。<br>
 	    </td>
 	  </tr><tr>
-	    <th nowrap>$LogDisplayCount</th>
+	    <th>$LogDisplayCount</th>
 	    <td>投稿メッセージログ 1ページあたりの表示件数（1 〜 100）<br>
 	      一応規定値の１１くらいでよいでしょう。<br>
 	    </td>
 	  </tr><tr>
-	    <th nowrap>$UserLogBgColor</th>
+	    <th>$UserLogBgColor</th>
 	    <td>新規投稿メッセージ表示背景色 <br>
 	      メッセージが新規投稿であれば、そのメッセージの背景色はこれです。<br>
 	      HTML形式（#4488FF など）で指定します。<br>
 	    </td>
 	  </tr><tr>
-	    <th nowrap>$UserLogResBgColor</th>
+	    <th>$UserLogResBgColor</th>
 	    <td>返信投稿メッセージ表示背景色 <br>
 	      メッセージが返信であれば、そのメッセージの背景色はこれです。<br>
 	      HTML形式（#4488FF など）で指定します。<br>
 	    </td>
 	  </tr>
 	</table>
-      </blockquote>
       <ul>
 	<li>以下は、ユーザー環境設定ファイル [ userdef.pm ] でゲストブック本体向けに設定する項目の初期状態です。
 	<li>あなたの構成に合わせて書き換えてくださいませ。
@@ -220,20 +211,20 @@
           $MaxLogCount = 256;                 ===> 256 以内を推奨しています。
 
           # ===========================================================
-          # ページの背景色 （&ltbody&gt タグの bgcolor属性）
+          # ページの背景色 （&lt;body&gt; タグの bgcolor属性）
           # ===========================================================
           $UserBgColor = '#FFFFFF';
 
           # ===========================================================
-          # ページの背景画像（&ltbody&gt タグの background属性）
+          # ページの背景画像（&lt;tbody&gt; タグの background属性）
           # ----------------------------------------------------
           # 画像ファイルは img ディレクトリに配置してください。
           # ===========================================================
-          $UserBgImg = 'background.gif';      ===> &ltbody&gt タグなので、$UserBgColor より優先されます。
+          $UserBgImg = 'background.gif';      ===> &lt;body&gt; タグなので、$UserBgColor より優先されます。
           ===> 画像ファイルは img ディレクトリに配置してください。
 
           # ===========================================================
-          # ページ本文の文字色（&ltbody&gt タグの text属性）
+          # ページ本文の文字色（&lt;body&gt; タグの text属性）
           # ===========================================================
           $UserFgColor = '#3080C0';
 
@@ -336,7 +327,6 @@
           ..
           ..
       </code></pre>
-      <br>
       <!-- ========================================================================= -->
       <h3>ユーザー環境設定ファイルの編集 [ userdef.pm ] -- 管理メニュー向けの設定</h3>
       <ul>
@@ -347,44 +337,43 @@
       <ul>
 	<li>管理メニュー向けに設定できる項目は次のとおりです。
       </ul>
-      <blockquote>
-	<table border="1" cellpadding="4" cellspacing="0">
+	<table>
 	  <tr>
-	    <th nowrap>$AdminUserName</th>
+	    <th>$AdminUserName</th>
 	    <td>管理者の名前<br>
 	      管理メニューの返信ボタンで表示される返信フォームに予めセットしておくために定義します。<br>
 	      管理者は、いちいちフォームにキー入力するのも面倒だからです。<br>
 	    </td>
 	  </tr><tr>
-	    <th nowrap>$AdminUserSex</th>
+	    <th>$AdminUserSex</th>
 	    <td>管理者の性別<br>
 	      管理者が男性であれば 0 を、女性は 1 を設定します。<br>
 	      管理メニューの返信ボタンで表示される返信フォームに予めセットしておくために定義します。<br>
 	      管理者は、いちいちフォームにキー入力するのも面倒だからです。<br>
 	    </td>
 	  </tr><tr>
-	    <th nowrap>$AdminUserEmail</th>
+	    <th>$AdminUserEmail</th>
 	    <td>管理者のEmail<br>
 	      管理のEmailアドレスを設定します。<br>
 	      管理メニューの返信ボタンで表示される返信フォームに予めセットしておくために定義します。<br>
 	      管理者は、いちいちフォームにキー入力するのも面倒だからです。<br>
 	    </td>
 	  </tr><tr>
-	    <th nowrap>$UserBgImg</th>
+	    <th>$UserBgImg</th>
 	    <td>管理者のHPトップページURL<br>
 	      管理のHPトップページURLを設定します。<br>
 	      管理メニューの返信ボタンで表示される返信フォームに予めセットしておくために定義します。<br>
 	      管理者は、いちいちフォームにキー入力するのも面倒だからです。<br>
 	    </td>
 	  </tr><tr>
-	    <th nowrap>$AdminUserHpName</th>
+	    <th>$AdminUserHpName</th>
 	    <td>管理者のHP名称<br>
 	      管理のHP名称を設定します。<br>
 	      管理メニューの返信ボタンで表示される返信フォームに予めセットしておくために定義します。<br>
 	      管理者は、いちいちフォームにキー入力するのも面倒だからです。<br>
 	    </td>
 	  </tr><tr>
-	    <th nowrap>$AdminPasswd</th>
+	    <th>$AdminPasswd</th>
 	    <td>管理ツールアクセス時パスワード<br>
 	      英数字（半角)4桁〜16桁で指定してください。<br>
 	      アクセスログ管理メニューでは、このパスワードで管理者の認証をおこないます。<br>
@@ -392,15 +381,14 @@
 	      このパスワードは他人から盗まれないよう注意してください。<br>
 	    </td>
 	  </tr><tr>
-	    <th nowrap>$CriptKey</th>
+	    <th>$CriptKey</th>
 	    <td>管理ツールアクセス時パスワード暗号化キー
 	      英数字（半角)4桁〜16桁で指定してください。<br>
 	      アクセスログ管理ツールのパスワードを暗号化する時の暗号カギです。<br>
 	      この暗号化キーも他人から盗まれないよう注意してください。<br>
 	    </td>
-	  </tr><tr>
+	  </tr>
 	</table>
-      </blockquote>
       <ul>
 	<li>以下は、ユーザー環境設定ファイル [ userdef.pm ] で管理メニュー向けに設定する項目の初期状態です。
 	<li>あなたの構成に合わせて書き換えてくださいませ。
@@ -464,74 +452,9 @@
           ..
           ..
       </code></pre>
-      <br>
-      <!-- ========================================================================= -->
-      <h3>Perlを使用する時のおまじない行の編集</h3>
-      <ul>
-	<li>自分のホームページがあるサーバーのPerlへのパスを指定します。Perlへのパスは、ホームページを置いているサーバー管理者に聞いてください。
-	<li>編集するのは、以下の４本です。いづれも先頭行のみです。
-      </ul>
-      <blockquote>
-	<table border="1" cellpadding="4" cellspacing="0">
-	  <tr>
-	    <th>zguest1.cgi</th>
-	    <td>Ｚゲストブック１号CGI本体プログラム[GET  METHOD]</td>
-	  </tr><tr>
-	    <th>zguest1p.cgi</th>
-	    <td>Ｚゲストブック１号CGI本体プログラム[POST METHOD]</td>
-	  </tr><tr>
-	    <th>zg1adm.cgi</th>
-	    <td>ゲストブック管理CGI本体プログラム[GET  METHOD] </td>
-	  </tr><tr>
-	    <th>zg1admp.cgi</th>
-	    <td>ゲストブック管理CGI本体プログラム[POST METHOD]</td>
-	  </tr><tr>
-	</table>
-      </blockquote>
-      <br>
-      <!-- ========================================================================= -->
-      <h3>実行権、書込権の付与</h3>
-      <ul>
-	<li>サーバー上のCGIが動作できるように、CGIスクリプトの実行権と、ファイルへの書込み権を設定します。
-	<li>サーバーにアップしたファイルやディレクトリの属性を、以下のとおりに変更してください。
-      </ul>
-      <pre>
-        ./zguest1.cgi            ---  rwxr-xr-x [ 755 ]
-        ./zguest1p.cgi           ---  rwxr-xr-x [ 755 ]
-        ./zg1adm.cgi             ---  rwxr-xr-x [ 755 ]
-        ./zg1admp.cgi            ---  rwxr-xr-x [ 755 ]
-        ./userdef.pm             ---  rw-r--r-- [ 644 ]
-        ./lib/                   ---  rwxr-xr-x [ 755 ]
-        ./lib/zguest1.pm         ---  rw-r--r-- [ 644 ]
-        ./lib/zg1adm.pm          ---  rw-r--r-- [ 644 ]
-        ./lib/zg1core.pm         ---  rw-r--r-- [ 644 ]
-        ./lib/zcgi.pm            ---  rw-r--r-- [ 644 ]
-        ./lib/jcode.pl           ---  rw-r--r-- [ 644 ]
-        ./img/                   ---  rwxr-xr-x [ 755 ]
-        ./img/配下画像ファイル   ---  rw-r--r-- [ 644 ]
-        ./data/                  ---  rwxrwxrwx [ 777 ]
-      </pre>
-      <br>
-      <!-- ========================================================================= -->
-      <h3>動作テスト</h3>
-      <ul>
-	<li>ゲストブックの動作テストを行います。
-	<li>ブラウザから次のURLでアクセスしてみましょう。
-	<li>http://--cgiへのURL--/zguest1.cgi
-	<li>例えば、"cgi-bin/guest/ " に設置した場合 http://サーバ・ホーム/cgi-bin/guest/zguest1.cgiとなります。 
-	<li>うまく動作したら、成功です。ページにリンクして使ってください。
-      </ul>
-      <ul>
-	<li>次に、管理メニューの動作テストを行います。
-	<li>ブラウザから次のURLでアクセスしてみましょう。
-	<li>http://--cgiへのURL--/zg1adm.cgi
-	<li>例えば、"cgi-bin/guest/ " に設置した場合 http://サーバ・ホーム/cgi-bin/guest/zg1adm.cgiとなります。 
-	<li>最初に認証パスワードを聞いてくるはずです。userdef.pm で定義したパスワードを入力してください。
-	<li>認証が成功すれば管理メニューが表示されると思います。
-	<li>うまく動作したら、成功です。
-	<li>管理メニューはゲストブック本体ページの上部リンクからエントリできますので、特に他のページからリンクする必要はないかと思います。
-      </ul>
-      <!-- ========================================================================= -->
-
+      </section>
+      <aside id="sidebar">
+	<h3><a href="index.html">[ 戻る ]</a></h3>
+      </aside>
   </body>
 </html>
