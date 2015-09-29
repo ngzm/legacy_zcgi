@@ -1,0 +1,167 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="/style/zumin.css" mendia="screen, projection, print">
+<title>Legacy zcgi zbgshow1/title>
+</head>
+  <body>
+    <header>
+      <div class="inner">
+	<h1>Legacy zcgi zbgshow1</h1>
+      </div>
+    </header>
+    <section>
+<!-- ============================================================================= -->
+<h3>zbgshow1</h3>
+<ul>
+  <li>zbgshow1はＺ壁紙ディスプレー１号のことです
+	<li>これは壁紙ごとに HTML ファイルを作ることなく、壁紙の背景サンプル表示を行う CGI です。
+	<li>壁紙の背景サンプルは、別のウインドウ、或いは、別のフレーム上に表示します。
+</ul>
+<!-- ============================================================================= -->
+<h3>動作条件</h3>
+<ul>
+	<li>ホームページがあるサーバーでPerlを使用したCGIが使えること。
+	<li>Perlのバージョンが 5（Perl5）以上であること。
+	<li>ホームページがあるサーバーのOSがLinux、UNIXであり、Web Server が Apache で動作確認しています。
+	<li>上記以外では動作確認していません。あしからずご了承ください。
+</ul>
+<!-- ============================================================================= -->
+<h3>ディレクトリ・ファイル構成</h3>
+<ul>
+    <li>zbgshow1.cgi --- Ｚ壁紙ディスプレー１号CGI本体プログラム
+	<li>このプログラムファイル一本あればOK です。
+</ul>
+<!-- ============================================================================= -->
+<h3>実行権、書込権の付与</h3>
+<pre>
+        ./zbgshow1.cgi          ---  rwxr-xr-x [ 755 ]
+</pre>
+<br>
+<!-- ============================================================================= -->
+<h3>ユーザー変数の編集 [ zbgshow1.cgi ]</h3>
+<ul>
+	<li>[ zbgshow1.cgi ]をメモ帳などのテキストエディタで開いて編集します。
+	<li>設定項目は以下の2項目です。
+	<ol>
+		<li>壁紙ディスプレーページのタイトル [ $Title ]
+		<li>壁紙ディスプレーページに表示する簡単な文章 [ $Body ]
+	</ol>
+</ul>
+<pre><code>
+        ==== zbgshow1.cgi ====
+        ..
+        ..
+        ###################################################################
+        #
+        #   カスタマイズ可能変数（お好みで書き換え可）
+        #
+        ###################################################################
+        
+        $Title = '壁紙サンプル表示';
+        $Body  = '表示はこんな感じです。&lt;br&gt;いかがですか？';
+        ..
+        ..
+</code></pre>
+<ul>
+	<li>壁紙ディスプレーページのタイトル [ $Title ] は、壁紙が背景となったページに表示するタイトルです。
+	<li>壁紙ディスプレーページに表示する簡単な文章 [ $Body ]は、壁紙が背景となったページに表示する文章です。
+	  <li>一言・二言くらいのメッセージを定義してください。
+	<li>簡単な文章 [ $Body ] は、HTML タグが使用 OK です（「HTMLで定義してください」と言うべきか、、）。
+</ul>
+<!-- ============================================================================= -->
+<a name="SAMPLE1">
+<h3 class="orange">ページへの組み込み　・・その１・・<br>別ウインドウを開いて壁紙サンプルを表示する</h3>
+</a>
+<ul>
+	<li>壁紙素材ページ(HTML)から Ｚ壁紙ディスプレー１号をリンクする記述例です。
+	<li>以下の例を参考にして、HTML ファイルを記述してください。
+	<li><span>赤</span>で表示しているところは、皆さんの環境に従って変更すべき箇所です。
+</ul>
+
+<blockquote>
+<code>
+	&lt;a href="<span>/home/cgi-bin/</span>zbgshow1.cgi?url=<span>/home/img/kabegami.gif</span>&title_col=<span>FF0000</span>&body_col=<span>0000FF</span>"<br>
+	　　target="zbgshow1"&gt;<br>
+	&lt;img src="<span>/home/img/kabegami.gif</span>"&gt;<br>
+	&lt;/a&gt;<br>
+</code>
+</blockquote>
+
+<ul>
+	<li>上記例の '/home/cgi-bin/zbgshow1.cgi' は、Ｚ壁紙ディスプレー１号 CGI への URL です。
+	<li>'/home/cgi-bin/' の部分は、皆さんのインストール環境にあわせて変更してください。
+</ul>
+<ul>
+	<li>これに続く '?' マークは、これ以降は CGI へのパラメータですよという印です。
+	<li>'?' マークは大事ですので、付け忘れないようにお願いします。
+</ul>
+<ul>
+	<li>続く 'url=/home/img/kabegami.gif' の部分は、CGI へのパラメータで、背景画像の URL を指定します。
+	<li>皆さんの環境にあわせて、壁紙画像への URL を記述してください。
+	<li>尚、この URL は、CGI プログラムから参照できるパスを指定する必要がありますので、この例のように、絶対パスで指定した方がよいでしょう。（相対で指定する場合は、CGI プログラムから見た相対パスで指定してください。）
+</ul>
+<ul>
+	<li>これに続く '&' マークは、CGI パラメータがもっとありますよという印です。
+	<li>'&' マークも大事ですので、付け忘れないようにお願いします。
+</ul>
+<ul>
+	<li>続く 'title_col=FF0000' の部分は、CGI パラメータで、タイトル文字色を指定します。
+	<li>'FF0000' の部分を、お好みの色に変更してください。
+</ul>
+<ul>
+	<li>これに続く '&' マークは、CGI パラメータがもっとありますよという印です。
+	<li>'&' マークも大事ですので、付け忘れないようにお願いします。
+</ul>
+<ul>
+	<li>続く 'body_col=0000FF' の部分は、CGI パラメータで、本文の文字色を指定します。
+	<li>'0000FF' の部分を、お好みの色に変更してください。
+</ul>
+<!-- ============================================================================= -->
+<a name="SAMPLE2">
+<h3 class="orange">ページへの組み込み　・・その２・・<br>別ウインドウを開いて壁紙サンプルを表示する（JavaScript使用）</h3>
+</a>
+<ul>
+	<li>壁紙素材ページ (HTML) の記述例
+	<li>先ず、下のJavaScriptをHTMLソースに挿入してください。
+	<li>挿入する箇所は &lt;HEAD&gt; 〜 &lt;/HEAD&gt; の間です。
+</ul>
+
+<blockquote>
+<code>
+	&lt;script language=javascript&gt;<br>
+	&lt;!--<br>
+	function BgWin( url ) {<br>
+	　　var win=open(url, "zbgshow", "toolbar=no,width=300,height=400,resizable=1");<br>
+	　　win.focus();<br>
+	}<br>
+	// --&gt;<br>
+	&lt;/script&gt;<br>
+</code>
+</blockquote>
+
+<ul>
+    <li>次に、CGI をリンクする箇所です。
+	<li><span>赤</span>で表示しているところは、皆さんの環境に従って変更すべき箇所です。
+</ul>
+
+<blockquote>
+<code>
+	&lt;a href="/do_javascript_function" <br>
+	　　onClick="BgWin(<br>
+	　　'<span>/home/cgi-bin/</span>zbgshow1.cgi?url=<span>/home/img/kabegami.gif</span>&title_col=<span>FF0000</span>&body_col=<span>0000FF</span>'<br>
+	　　);return false"&gt;<br>
+	&lt;img src="<span>/home/img/kabegami.gif</span>"&gt;<br>
+	&lt;/a&gt;<br>
+</code>
+</blockquote>
+
+<ul>
+	<li>変更方法についての考え方は、上記の「・・その１・・別ウインドウを開いて壁紙サンプルを表示する」と同じですので、そちらを参照してください。
+</ul>
+<!-- ============================================================================= -->
+</div>
+
+</body>
+</html>
