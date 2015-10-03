@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+    <title>legacy zcgi zbgshow2 by ngzm</title>
+  </head>
+  <body>
+    <header>
+      <div class="header">
+	<h1>Legacy zcgi zbgshow2</h1>
+      </div>
+    </header>
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+	  <!-- ============================================================================= -->
+	  <h3>zbgshow2 とは</h3>
+	  <p>
+	    Ｚ壁紙ディスプレー２号のことです。これは、壁紙ごとに HTML ファイルを作ることなく、壁紙の背景サンプル表示を行う CGI です。現在のウインドウに、選択した壁紙の背景を表示ができます。
+	  </p>
+	  <!-- ============================================================================= -->
+	  <h3>動作条件</h3>
+	  <ul>
+	    <li>ホームページがあるサーバで（Perl5）以上を使用したCGIが使えること。
+	    <li>サーバのOSがLinux、UNIXで、文字コードは EUC_JP もしくは SJIS であること。たぶんUTF8ではだめです。古いんで・・
+	    <li>サーバのOSがLinux、UNIXで、Web Server が Apache で動作確認しています。
+	  </ul>
+	  <!-- ============================================================================================= -->
+	  <h3>ファイル構成 と アクセス権</h3>
+	  <ul>
+	    <li>zbgshow2.cgi - rwxr-xr-x [755]  --- Ｚ壁紙ディスプレー２号CGI本体プログラム
+	    <li>このプログラムファイル一本です。
+	  </ul>
+	  <!-- ============================================================================= -->
+	  <h3>設置例とパラメータ</h3>
+	  <p>
+	    壁紙素材ページ(HTML)から Ｚ壁紙ディスプレー２号をリンクする記述例です。以下の例を参考にHTML ファイルを記述してください。<br>
+	    なお、<span style="color:red">赤</span>で表示しているところは、皆さんの環境に従って変更すべき箇所です。
+	  </p>
+
+
+	  <code>
+	    &lt;a href="<span style="color:red">/home/cgi-bin/</span>zbgshow2.cgi<span style="color:red">/home/html/kabegami.html</span>?url=<span style="color:red">/home/img/kabegami.gif</span>"&gt;<br>
+	    &lt;img src="<span style="color:red">/home/img/kabegami.gif</span>"&gt;<br>
+	    &lt;/a&gt;<br>
+	  </code>
+	  <ul>
+	    <li>'<span style="color:red">/home/cgi-bin/zbgshow2.cgi</span>' は、Ｚ壁紙ディスプレー２号 CGI の URL です。環境にあわせて変更してください。
+	    <li>次の '<span style="color:red">/home/html/kabegami.html</span>' は、現在ページの URL です。この部分も環境にあわせて変更してください。
+	    <li>続く 'url' パラメータ：この例では'<span style="color:red">/home/img/kabegami.gif</span>' の部分で、背景画像の URL を指定します。
+	    <li>現在ページの URL や背景画像のURLは、CGIから参照できる必要がありますので、この例のように絶対パスで指定してください。
+	  </ul>
+	  <!-- ============================================================================= -->
+	</section>
+	<aside id="sidebar">
+	  <h3><a href="index.html">[ 戻る ]</a></h3>
+	</aside>
+      </div>
+    </div>
+  </body>
+</html>
